@@ -1,0 +1,5 @@
+INSERT INTO notebook (marca, modelo, numero_serie, status) VALUES
+                                                               ('Dell', 'Latitude 5420', 'SN12345', 'Disponível'),
+                                                               ('Lenovo', 'ThinkPad T14', 'SN67890', 'Em uso'),
+                                                               ('HP', 'EliteBook 840', 'SN54321', 'Em manutenção'),
+                                                               ('Apple', 'MacBook Pro 14', 'SN98765', 'Disponível');
