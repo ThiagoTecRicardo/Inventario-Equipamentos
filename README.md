@@ -1,4 +1,4 @@
-# 📒 Inventário de Notebooks
+# 📒 Inventário de Equipamento
 
 Este projeto consiste em um sistema de gerenciamento de inventário de notebooks, desenvolvido em **Java** com suporte ao **Maven**.  
 O objetivo é fornecer uma solução organizada e escalável para controle de equipamentos de TI em ambientes corporativos.
