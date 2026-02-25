@@ -33,6 +33,7 @@ public class EquipamentoController {
                     equipamento.setEquipamento(equipamentoAtualizado.getEquipamento());
                     equipamento.setProjeto(equipamentoAtualizado.getProjeto());
                     equipamento.setDataCompra(equipamentoAtualizado.getDataCompra());
+                    equipamento.setFuncionario(equipamentoAtualizado.getFuncionario());
                     Equipamento atualizado = service.salvar(equipamento);
                     return ResponseEntity.ok(atualizado);
                 })

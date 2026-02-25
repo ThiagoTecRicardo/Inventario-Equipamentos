@@ -1,9 +1,6 @@
 package br.com.innvo.inventario.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -25,6 +22,10 @@ public class Equipamento {
     private LocalDateTime dataCompra;
     private String projeto;
     private Tipo equipamento;
+
+    @OneToOne
+    @JoinColumn(name = "funcionario_id")
+    private Funcionario funcionario;
 
 }
 
