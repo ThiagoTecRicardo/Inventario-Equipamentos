@@ -38,7 +38,6 @@ O objetivo é fornecer uma solução organizada e escalável para controle de eq
 
 ## 📂 Estrutura do Projeto
 
-
 <img width="1022" height="228" alt="image" src="https://github.com/user-attachments/assets/3bfa0409-3099-4779-893c-056b320935c0" />
 
 ## 📌 Roadmap de Evolução- Implementação de interface gráfica ou API REST.
