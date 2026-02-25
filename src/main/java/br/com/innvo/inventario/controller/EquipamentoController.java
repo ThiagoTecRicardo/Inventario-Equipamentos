@@ -1,9 +1,13 @@
 package br.com.innvo.inventario.controller;
 
 import br.com.innvo.inventario.model.Equipamento;
+import br.com.innvo.inventario.model.Status;
 import br.com.innvo.inventario.service.EquipamentoService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
+
 import java.util.List;
 
 @RestController
@@ -22,7 +26,7 @@ public class EquipamentoController {
         return service.salvar(equipamento);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/atualizar/{id}")
     public ResponseEntity<Equipamento> atualizar(@PathVariable Long id, @RequestBody Equipamento equipamentoAtualizado) {
         return service.buscarPorId(id)
                 .map(equipamento -> {
@@ -38,6 +42,24 @@ public class EquipamentoController {
                     return ResponseEntity.ok(atualizado);
                 })
                 .orElse(ResponseEntity.notFound().build());
+    }
+
+    @PostMapping("/{id}/desvincular")
+    public ResponseEntity<Equipamento> desvincular(@PathVariable Long id) {
+
+        // Busca o notebook ou retorna erro 404 se não existir
+
+        Equipamento equipamento = service.buscarPorId(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Notebook não encontrado"));
+
+        // Remove o vínculo com o funcionário e limpas os campos de cliente e status
+
+        equipamento.setFuncionario(null);
+        equipamento.setProjeto(null);
+        equipamento.setStatus(Status.ESTOQUE);
+
+        // Salva a alteração no banco
+        return ResponseEntity.ok(service.salvar(equipamento));
     }
 
     @GetMapping("/listar")
