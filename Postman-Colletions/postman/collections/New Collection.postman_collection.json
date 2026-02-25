@@ -1,0 +1,60 @@
+{
+  "info": {
+    "_postman_id": "e95d4c43-e930-47d0-b981-ac1802484c16",
+    "name": "Innvo-Inventario",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Listar-todos",
+      "id": "594d3998-7e16-4ccb-a7a4-53524ef6771b",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/notebooks/listar",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "notebooks",
+            "listar"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Registrar-Notebook",
+      "id": "7871ac9a-7d63-47ef-85ae-42971ebacf75",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "   {\r\n        \r\n        \"marca\": \"DELL\",\r\n        \"modelo\": \"Latitude\",\r\n        \"numeroSerie\": \"dfggvdd33455fcss\",\r\n        \"status\": \"DISPONIVEL\"\r\n    }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/notebooks/registrar",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "notebooks",
+            "registrar"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

@@ -7,11 +7,13 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 
 @Getter
 @Setter
 @Entity
-public class Notebook {
+public class Equipamento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,6 +22,9 @@ public class Notebook {
     private String modelo;
     private String numeroSerie;
     private Status status;
+    private LocalDateTime dataCompra;
+    private String projeto;
+    private Tipo equipamento;
 
 }
 

@@ -2,5 +2,5 @@ package br.com.innvo.inventario.model;
 
 public enum Status {
 
-    DISPONIVEL, EM_USO, EM_MANUTENCAO
+    ESTOQUE, EM_USO, EM_MANUTENCAO, DEVOLVIDO_CLIENTE
 }
