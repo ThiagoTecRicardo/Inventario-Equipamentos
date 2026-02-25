@@ -37,7 +37,7 @@ public class EquipamentoController {
                     equipamento.setEquipamento(equipamentoAtualizado.getEquipamento());
                     equipamento.setProjeto(equipamentoAtualizado.getProjeto());
                     equipamento.setDataCompra(equipamentoAtualizado.getDataCompra());
-                    equipamento.setFuncionario(equipamentoAtualizado.getFuncionario());
+                    equipamento.setFuncinario(equipamentoAtualizado.getFuncinario());
                     Equipamento atualizado = service.salvar(equipamento);
                     return ResponseEntity.ok(atualizado);
                 })
@@ -54,7 +54,7 @@ public class EquipamentoController {
 
         // Remove o vínculo com o funcionário e limpas os campos de cliente e status
 
-        equipamento.setFuncionario(null);
+        equipamento.setFuncinario(null);
         equipamento.setProjeto(null);
         equipamento.setStatus(Status.ESTOQUE);
 

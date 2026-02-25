@@ -12,14 +12,15 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:8080/notebooks/listar",
+          "raw": "http://localhost:8080/api/equipamento/listar",
           "protocol": "http",
           "host": [
             "localhost"
           ],
           "port": "8080",
           "path": [
-            "notebooks",
+            "api",
+            "equipamento",
             "listar"
           ]
         }
@@ -27,14 +28,14 @@
       "response": []
     },
     {
-      "name": "Registrar-Notebook",
+      "name": "Registrar-Notebook-Funcionario",
       "id": "7871ac9a-7d63-47ef-85ae-42971ebacf75",
       "request": {
         "method": "POST",
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "   {\r\n        \r\n        \"marca\": \"DELL\",\r\n        \"modelo\": \"Latitude\",\r\n        \"numeroSerie\": \"dfggvdd33455fcss\",\r\n        \"status\": \"DISPONIVEL\"\r\n    }",
+          "raw": " {\r\n      \r\n    \"equipamento\": \"NOTEBOOK\",\r\n    \"funcinario\": \"Thiago Ricardo\",\r\n    \"marca\": \"DELL\",\r\n    \"modelo\": \"Latitude\",\r\n    \"numeroSerie\": \"dfggvdd33455fcss\",\r\n    \"projeto\": \"Santander\",\r\n    \"status\": \"ESTOQUE\"\r\n        \r\n    }",
           "options": {
             "raw": {
               "language": "json"
@@ -42,15 +43,48 @@
           }
         },
         "url": {
-          "raw": "http://localhost:8080/notebooks/registrar",
+          "raw": "http://localhost:8080/api/equipamento/registrar",
           "protocol": "http",
           "host": [
             "localhost"
           ],
           "port": "8080",
           "path": [
-            "notebooks",
+            "api",
+            "equipamento",
             "registrar"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Atualizar-Notebook-Funcionario",
+      "id": "db6249cf-eca2-42ed-80eb-fe8b4a563a89",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": " {\r\n      \r\n        \"equipamento\": \"CELULAR\",\r\n        \"funcinario\": \"Thiago Ricardo\",\r\n        \"marca\": \"DELL\",\r\n        \"modelo\": \"Latitude\",\r\n        \"numeroSerie\": \"dfggvdd33455fcss\",\r\n        \"projeto\": \"Santander\",\r\n        \"status\": \"EM_USO\"\r\n        \r\n    }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/equipamento/atualizar/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "equipamento",
+            "atualizar",
+            "1"
           ]
         }
       },

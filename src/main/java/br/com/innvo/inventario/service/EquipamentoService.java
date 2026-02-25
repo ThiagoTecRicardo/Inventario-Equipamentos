@@ -1,6 +1,8 @@
 package br.com.innvo.inventario.service;
 
 import br.com.innvo.inventario.model.Equipamento;
+import br.com.innvo.inventario.model.Status;
+import br.com.innvo.inventario.model.Tipo;
 import br.com.innvo.inventario.repository.EquipamentoRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -14,8 +16,17 @@ public class EquipamentoService {
         this.repository = repository;
     }
 
-    public Equipamento salvar(Equipamento notebook) {
-        return repository.save(notebook);
+    public Equipamento salvar(Equipamento equipamento) {
+        equipamento.setEquipamento(equipamento.getEquipamento());
+        equipamento.setStatus(equipamento.getStatus());
+        equipamento.setModelo(equipamento.getModelo());
+        equipamento.setDataCompra(equipamento.getDataCompra());
+        equipamento.setProjeto(equipamento.getProjeto());
+        equipamento.setMarca(equipamento.getMarca());
+        equipamento.setNumeroSerie(equipamento.getNumeroSerie());
+        equipamento.setFuncinario(equipamento.getFuncinario());
+
+        return repository.save(equipamento);
     }
 
     public List<Equipamento> listarTodos() {

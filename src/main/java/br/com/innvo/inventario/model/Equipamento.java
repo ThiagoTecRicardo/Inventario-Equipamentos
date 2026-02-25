@@ -1,5 +1,7 @@
 package br.com.innvo.inventario.model;
 
+
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,14 +20,11 @@ public class Equipamento {
     private String marca;
     private String modelo;
     private String numeroSerie;
-    private Status status;
-    private LocalDateTime dataCompra;
+    private Status status = Status.ESTOQUE;
+    private LocalDateTime dataCompra = LocalDateTime.now();
     private String projeto;
-    private Tipo equipamento;
-
-    @OneToOne
-    @JoinColumn(name = "funcionario_id")
-    private Funcionario funcionario;
+    private Tipo equipamento = Tipo.NOTEBOOK;
+    private String funcinario;
 
 }
 
