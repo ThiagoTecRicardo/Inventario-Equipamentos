@@ -28,23 +28,11 @@ public class EquipamentoController {
 
     @PutMapping("/atualizar/{id}")
     public ResponseEntity<Equipamento> atualizar(@PathVariable Long id, @RequestBody Equipamento equipamentoAtualizado) {
-        return service.buscarPorId(id)
-                .map(equipamento -> {
-                    equipamento.setMarca(equipamentoAtualizado.getMarca());
-                    equipamento.setModelo(equipamentoAtualizado.getModelo());
-                    equipamento.setNumeroSerie(equipamentoAtualizado.getNumeroSerie());
-                    equipamento.setStatus(equipamentoAtualizado.getStatus());
-                    equipamento.setEquipamento(equipamentoAtualizado.getEquipamento());
-                    equipamento.setProjeto(equipamentoAtualizado.getProjeto());
-                    equipamento.setDataCompra(equipamentoAtualizado.getDataCompra());
-                    equipamento.setFuncinario(equipamentoAtualizado.getFuncinario());
-                    Equipamento atualizado = service.salvar(equipamento);
-                    return ResponseEntity.ok(atualizado);
-                })
-                .orElse(ResponseEntity.notFound().build());
-    }
+        Equipamento equipamentoSalvo = service.atualizar(id, equipamentoAtualizado);
+        return ResponseEntity.ok(equipamentoSalvo);
+       }
 
-    @PostMapping("/{id}/desvincular")
+    @PutMapping("/{id}/desvincular")
     public ResponseEntity<Equipamento> desvincular(@PathVariable Long id) {
 
         // Busca o notebook ou retorna erro 404 se não existir

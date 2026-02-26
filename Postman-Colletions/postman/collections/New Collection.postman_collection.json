@@ -35,7 +35,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": " {\r\n      \r\n    \"equipamento\": \"NOTEBOOK\",\r\n    \"funcinario\": \"Thiago Ricardo\",\r\n    \"marca\": \"DELL\",\r\n    \"modelo\": \"Latitude\",\r\n    \"numeroSerie\": \"dfggvdd33455fcss\",\r\n    \"projeto\": \"Santander\",\r\n    \"status\": \"ESTOQUE\"\r\n        \r\n    }",
+          "raw": " {\r\n      \r\n    \"equipamento\": \"NOTEBOOK\",\r\n    \"funcinario\": \"Anderson\",\r\n    \"marca\": \"DELL\",\r\n    \"modelo\": \"Latitude\",\r\n    \"numeroSerie\": \"dfggvdd33455fcss\",\r\n    \"projeto\": \"Santander\"  \r\n        \r\n    }",
           "options": {
             "raw": {
               "language": "json"
@@ -59,14 +59,14 @@
       "response": []
     },
     {
-      "name": "Atualizar-Notebook-Funcionario",
+      "name": "Atualizar-Notebook-Liberar",
       "id": "db6249cf-eca2-42ed-80eb-fe8b4a563a89",
       "request": {
         "method": "PUT",
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": " {\r\n      \r\n        \"equipamento\": \"CELULAR\",\r\n        \"funcinario\": \"Thiago Ricardo\",\r\n        \"marca\": \"DELL\",\r\n        \"modelo\": \"Latitude\",\r\n        \"numeroSerie\": \"dfggvdd33455fcss\",\r\n        \"projeto\": \"Santander\",\r\n        \"status\": \"EM_USO\"\r\n        \r\n    }",
+          "raw": "",
           "options": {
             "raw": {
               "language": "json"
@@ -74,7 +74,39 @@
           }
         },
         "url": {
-          "raw": "http://localhost:8080/api/equipamento/atualizar/1",
+          "raw": "http://localhost:8080/api/equipamento/3/desvincular",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "equipamento",
+            "3",
+            "desvincular"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Atualizar-Notebook-Funcionario Copy",
+      "id": "3b846f09-2118-48e6-8323-3b6fc38ec808",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": " {\r\n      \r\n        \"equipamento\": \"CELULAR\",\r\n        \"funcinario\": \"Ricardo\",\r\n        \"marca\": \"DELL\",\r\n        \"modelo\": \"Latitude\",\r\n        \"numeroSerie\": \"dfggvdd33455fcss\",\r\n        \"projeto\": \"Santander\",\r\n        \"status\": \"EM_USO\"\r\n        \r\n    }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/equipamento/atualizar/4",
           "protocol": "http",
           "host": [
             "localhost"
@@ -84,7 +116,7 @@
             "api",
             "equipamento",
             "atualizar",
-            "1"
+            "4"
           ]
         }
       },

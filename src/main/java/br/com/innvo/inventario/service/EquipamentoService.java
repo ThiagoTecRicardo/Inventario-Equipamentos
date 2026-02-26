@@ -4,6 +4,7 @@ import br.com.innvo.inventario.model.Equipamento;
 import br.com.innvo.inventario.model.Status;
 import br.com.innvo.inventario.model.Tipo;
 import br.com.innvo.inventario.repository.EquipamentoRepository;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
@@ -48,4 +49,21 @@ public class EquipamentoService {
     public void deletar(Long id) {
         repository.deleteById(id);
     }
-}
+
+    public Equipamento atualizar(Long id, Equipamento equipamentoAtualizado) {
+        return repository.findById(id)
+                .map(equipamento -> {
+                    equipamento.setMarca(equipamentoAtualizado.getMarca());
+                    equipamento.setModelo(equipamentoAtualizado.getModelo());
+                    equipamento.setNumeroSerie(equipamentoAtualizado.getNumeroSerie());
+                    equipamento.setStatus(equipamentoAtualizado.getStatus());
+                    equipamento.setEquipamento(equipamentoAtualizado.getEquipamento());
+                    equipamento.setProjeto(equipamentoAtualizado.getProjeto());
+                    equipamento.setDataCompra(equipamentoAtualizado.getDataCompra());
+                    equipamento.setFuncinario(equipamentoAtualizado.getFuncinario());
+                    Equipamento atualizado = repository.save(equipamento);
+                    return ResponseEntity.ok(atualizado);
+                })
+                .orElse(ResponseEntity.notFound().build()).getBody();
+    }
+    }

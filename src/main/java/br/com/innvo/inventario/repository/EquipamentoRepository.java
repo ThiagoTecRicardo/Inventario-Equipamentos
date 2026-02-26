@@ -8,5 +8,5 @@ import java.util.List;
 public interface EquipamentoRepository extends JpaRepository<Equipamento, Long> {
     List<Equipamento> findByStatus(String status);
     List<Equipamento> findByMarca(String marca);
-    List<Equipamento> findByFuncinario(String funcinario);
+
 }
