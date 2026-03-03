@@ -6,121 +6,208 @@
   },
   "item": [
     {
-      "name": "Listar-todos",
-      "id": "594d3998-7e16-4ccb-a7a4-53524ef6771b",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:8080/api/equipamento/listar",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "equipamento",
-            "listar"
-          ]
+      "name": "Funcionario",
+      "item": [
+        {
+          "name": "Listar",
+          "id": "afc71263-9815-49be-bf67-00307afe249f",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Registrar",
+          "id": "f8748985-8041-4eb7-8683-7620c5c9f6b6",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n \"nome\": \"Anderson\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/funcionario/registrar",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "funcionario",
+                "registrar"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Atualizar",
+          "id": "0144cf15-83a6-4b57-9c47-510608930c9f",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": " {\r\n      \r\n        \"equipamento\": \"CELULAR\",\r\n        \"funcinario\": \"Ricardo\",\r\n        \"marca\": \"DELL\",\r\n        \"modelo\": \"Latitude\",\r\n        \"numeroSerie\": \"dfggvdd33455fcss\",\r\n        \"projeto\": \"Santander\",\r\n        \"status\": \"EM_USO\"\r\n        \r\n    }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/equipamento/atualizar/4",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "equipamento",
+                "atualizar",
+                "4"
+              ]
+            }
+          },
+          "response": []
         }
-      },
-      "response": []
+      ],
+      "id": "d52a4805-e869-40d2-b2b0-944f50b749a0"
     },
     {
-      "name": "Registrar-Notebook-Funcionario",
-      "id": "7871ac9a-7d63-47ef-85ae-42971ebacf75",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": " {\r\n      \r\n    \"equipamento\": \"NOTEBOOK\",\r\n    \"funcinario\": \"Anderson\",\r\n    \"marca\": \"DELL\",\r\n    \"modelo\": \"Latitude\",\r\n    \"numeroSerie\": \"dfggvdd33455fcss\",\r\n    \"projeto\": \"Santander\"  \r\n        \r\n    }",
-          "options": {
-            "raw": {
-              "language": "json"
+      "name": "Equipamento",
+      "item": [
+        {
+          "name": "Listar-todos",
+          "id": "594d3998-7e16-4ccb-a7a4-53524ef6771b",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/equipamento/listar",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "equipamento",
+                "listar"
+              ]
             }
-          }
+          },
+          "response": []
         },
-        "url": {
-          "raw": "http://localhost:8080/api/equipamento/registrar",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "equipamento",
-            "registrar"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Atualizar-Notebook-Liberar",
-      "id": "db6249cf-eca2-42ed-80eb-fe8b4a563a89",
-      "request": {
-        "method": "PUT",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "",
-          "options": {
-            "raw": {
-              "language": "json"
+        {
+          "name": "Registrar",
+          "id": "7871ac9a-7d63-47ef-85ae-42971ebacf75",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": " {\r\n      \r\n    \"equipamento\": \"NOTEBOOK\",\r\n    \"funcinario\": \"Anderson\",\r\n    \"marca\": \"DELL\",\r\n    \"modelo\": \"Latitude\",\r\n    \"numeroSerie\": \"dfggvdd33455fcss\",\r\n    \"projeto\": \"Santander\"  \r\n        \r\n    }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/equipamento/registrar",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "equipamento",
+                "registrar"
+              ]
             }
-          }
+          },
+          "response": []
         },
-        "url": {
-          "raw": "http://localhost:8080/api/equipamento/3/desvincular",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "equipamento",
-            "3",
-            "desvincular"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Atualizar-Notebook-Funcionario Copy",
-      "id": "3b846f09-2118-48e6-8323-3b6fc38ec808",
-      "request": {
-        "method": "PUT",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": " {\r\n      \r\n        \"equipamento\": \"CELULAR\",\r\n        \"funcinario\": \"Ricardo\",\r\n        \"marca\": \"DELL\",\r\n        \"modelo\": \"Latitude\",\r\n        \"numeroSerie\": \"dfggvdd33455fcss\",\r\n        \"projeto\": \"Santander\",\r\n        \"status\": \"EM_USO\"\r\n        \r\n    }",
-          "options": {
-            "raw": {
-              "language": "json"
+        {
+          "name": "Desvincular",
+          "id": "db6249cf-eca2-42ed-80eb-fe8b4a563a89",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/equipamento/3/desvincular",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "equipamento",
+                "3",
+                "desvincular"
+              ]
             }
-          }
+          },
+          "response": []
         },
-        "url": {
-          "raw": "http://localhost:8080/api/equipamento/atualizar/4",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "equipamento",
-            "atualizar",
-            "4"
-          ]
+        {
+          "name": "Atualizar",
+          "id": "3b846f09-2118-48e6-8323-3b6fc38ec808",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": " {\r\n      \r\n        \"equipamento\": \"CELULAR\",\r\n        \"funcinario\": \"Ricardo\",\r\n        \"marca\": \"DELL\",\r\n        \"modelo\": \"Latitude\",\r\n        \"numeroSerie\": \"dfggvdd33455fcss\",\r\n        \"projeto\": \"Santander\",\r\n        \"status\": \"EM_USO\"\r\n        \r\n    }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/equipamento/atualizar/4",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "equipamento",
+                "atualizar",
+                "4"
+              ]
+            }
+          },
+          "response": []
         }
-      },
-      "response": []
+      ],
+      "id": "db2863c4-6350-4c18-800c-48e6b5c5f2ff"
     }
   ]
 }

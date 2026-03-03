@@ -1,8 +1,9 @@
 package br.com.innvo.inventario.controller;
 
 import br.com.innvo.inventario.model.Equipamento;
-import br.com.innvo.inventario.model.Status;
+import br.com.innvo.inventario.model.StatusEquipamento;
 import br.com.innvo.inventario.service.EquipamentoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,12 +15,14 @@ import java.util.List;
 @RequestMapping("/api/equipamento")
 public class EquipamentoController {
 
-    private final EquipamentoService service;
+    @Autowired
+    private EquipamentoService service;
 
-    public EquipamentoController(EquipamentoService service) {
-        this.service = service;
+
+    @GetMapping("/listar")
+    public List<Equipamento> listar() {
+        return service.listarTodos();
     }
-
 
     @PostMapping("/registrar")
     public Equipamento criar(@RequestBody Equipamento equipamento) {
@@ -42,18 +45,15 @@ public class EquipamentoController {
 
         // Remove o vínculo com o funcionário e limpas os campos de cliente e status
 
-        equipamento.setFuncinario(null);
+        //equipamento.setFuncinario(null);
         equipamento.setProjeto(null);
-        equipamento.setStatus(Status.ESTOQUE);
+        equipamento.setStatus(StatusEquipamento.ESTOQUE);
 
         // Salva a alteração no banco
         return ResponseEntity.ok(service.salvar(equipamento));
     }
 
-    @GetMapping("/listar")
-    public List<Equipamento> listar() {
-        return service.listarTodos();
-    }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<Equipamento> buscar(@PathVariable Long id) {

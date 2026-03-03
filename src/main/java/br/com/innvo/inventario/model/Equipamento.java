@@ -20,11 +20,14 @@ public class Equipamento {
     private String marca;
     private String modelo;
     private String numeroSerie;
-    private Status status = Status.ESTOQUE;
+    private StatusEquipamento status = StatusEquipamento.ESTOQUE;
     private LocalDateTime dataCompra = LocalDateTime.now();
     private String projeto;
-    private Tipo equipamento = Tipo.NOTEBOOK;
-    private String funcinario;
+    private TipoEquipamento equipamento = TipoEquipamento.NOTEBOOK;
+
+    @ManyToOne
+    @JoinColumn(name = "codigo_funcionario")
+    private Funcionario funcionario;
 
 }
 
