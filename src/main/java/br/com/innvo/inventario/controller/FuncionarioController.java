@@ -35,7 +35,7 @@ public class FuncionarioController {
     @PutMapping("/atualizar/{codigo}")
     public ResponseEntity<Funcionario> atualizar(@PathVariable Long codigo, @RequestBody Funcionario funcionario) {
         try {
-            Funcionario funcionarioSalvo = funcionarioService.atualizar(codigo);
+            Funcionario funcionarioSalvo = funcionarioService.atualizar(codigo,  funcionario);
             return ResponseEntity.ok(funcionarioSalvo);
         } catch (IllegalArgumentException e) {
             return ResponseEntity.notFound().build();
