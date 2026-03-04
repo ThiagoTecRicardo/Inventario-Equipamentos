@@ -90,7 +90,7 @@
       "name": "Equipamento",
       "item": [
         {
-          "name": "Listar-todos",
+          "name": "Listar",
           "id": "594d3998-7e16-4ccb-a7a4-53524ef6771b",
           "request": {
             "method": "GET",
@@ -119,7 +119,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": " {\r\n      \r\n    \"equipamento\": \"NOTEBOOK\",\r\n    \"funcinario\": \"Anderson\",\r\n    \"marca\": \"DELL\",\r\n    \"modelo\": \"Latitude\",\r\n    \"numeroSerie\": \"dfggvdd33455fcss\",\r\n    \"projeto\": \"Santander\"  \r\n        \r\n    }",
+              "raw": " {\r\n      \r\n    \"equipamento\": \"NOTEBOOK\",\r\n    \"funcinario\": \"1\",\r\n    \"marca\": \"DELL\",\r\n    \"modelo\": \"Latitude\",\r\n    \"numeroSerie\": \"dfggvdd33455fcss\",\r\n    \"projeto\": \"Santander\"  \r\n        \r\n    }",
               "options": {
                 "raw": {
                   "language": "json"
@@ -182,7 +182,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": " {\r\n      \r\n        \"equipamento\": \"CELULAR\",\r\n        \"funcinario\": \"Ricardo\",\r\n        \"marca\": \"DELL\",\r\n        \"modelo\": \"Latitude\",\r\n        \"numeroSerie\": \"dfggvdd33455fcss\",\r\n        \"projeto\": \"Santander\",\r\n        \"status\": \"EM_USO\"\r\n        \r\n    }",
+              "raw": " {\r\n      \r\n    \"equipamento\": \"CELULAR\",\r\n    \"funcionario\": {\r\n        \"codigo\": 1\r\n    },\r\n    \"marca\": \"DELL\",\r\n    \"modelo\": \"Latitude\",\r\n    \"numeroSerie\": \"dfggvdd33455fcss\",\r\n    \"projeto\": \"Santander\",\r\n    \"status\": \"EM_USO\"\r\n        \r\n    }",
               "options": {
                 "raw": {
                   "language": "json"

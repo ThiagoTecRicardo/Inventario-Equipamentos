@@ -25,8 +25,9 @@ public class EquipamentoController {
     }
 
     @PostMapping("/registrar")
-    public Equipamento criar(@RequestBody Equipamento equipamento) {
-        return service.salvar(equipamento);
+    public ResponseEntity<Equipamento> criar(@RequestBody Equipamento equipamento) {
+        Equipamento equipamentoSalvo = service.salvar(equipamento);
+        return ResponseEntity.status(HttpStatus.CREATED).body(equipamentoSalvo);
     }
 
     @PutMapping("/atualizar/{id}")

@@ -1,7 +1,9 @@
 package br.com.innvo.inventario.service;
 
 import br.com.innvo.inventario.model.Equipamento;
+import br.com.innvo.inventario.model.Funcionario;
 import br.com.innvo.inventario.repository.EquipamentoRepository;
+import br.com.innvo.inventario.repository.FuncionarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -14,17 +16,13 @@ public class EquipamentoService {
     @Autowired
     private EquipamentoRepository repository;
 
+    @Autowired
+    private FuncionarioRepository funcionarioRepository;
+
 
 
     public Equipamento salvar(Equipamento equipamento) {
-        equipamento.setEquipamento(equipamento.getEquipamento());
-        equipamento.setStatus(equipamento.getStatus());
-        equipamento.setModelo(equipamento.getModelo());
-        equipamento.setDataCompra(equipamento.getDataCompra());
-        equipamento.setProjeto(equipamento.getProjeto());
-        equipamento.setMarca(equipamento.getMarca());
-        equipamento.setNumeroSerie(equipamento.getNumeroSerie());
-        //equipamento.setFuncinario(equipamento.getFuncinario());
+        Optional<Funcionario> funcionario = funcionarioRepository.findById(equipamento.getFuncionario().getCodigo());
 
         return repository.save(equipamento);
     }
@@ -39,7 +37,7 @@ public class EquipamentoService {
                     equipamento.setEquipamento(equipamentoAtualizado.getEquipamento());
                     equipamento.setProjeto(equipamentoAtualizado.getProjeto());
                     equipamento.setDataCompra(equipamentoAtualizado.getDataCompra());
-                    //equipamento.(equipamentoAtualizado.getFuncinario());
+                    equipamento.setFuncionario(equipamentoAtualizado.getFuncionario());
                     Equipamento atualizado = repository.save(equipamento);
                     return ResponseEntity.ok(atualizado);
                 })
