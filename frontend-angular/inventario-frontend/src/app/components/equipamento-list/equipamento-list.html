@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <th>Equipamento</th>
+    <th>Funcionário</th>
+    <th>Ações</th>
+  </tr>
+  <tr *ngFor="let eq of equipamentos">
+    <td>{{ eq.marca }} - {{ eq.modelo }}</td>
+    <td>{{ eq.funcionario?.nome || 'Disponível' }}</td>
+    <td>
+      <button (click)="onDesvincular(eq.id)" *ngIf="eq.funcionario">Desvincular</button>
+    </td>
+  </tr>
+</table>
