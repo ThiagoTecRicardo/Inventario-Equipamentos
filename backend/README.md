@@ -54,7 +54,6 @@ docker-compose up -d
 - [X] Implementar API REST completa
 - [X] Persistência em PostgreSQL
 - [ ] Criar testes automatizados
-- [ ] Adicionar interface gráfica
 - [ ] Documentação técnica detalhada
 
 ## 📌 Exemplos de Uso
