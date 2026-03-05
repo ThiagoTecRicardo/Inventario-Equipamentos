@@ -38,7 +38,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n \"nome\": \"Pedro\"\r\n}",
+              "raw": "{\r\n \"nome\": \"Thiago\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -129,7 +129,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"marca\": \"APPLE\",\r\n    \"modelo\": \"MacBook Pro M3\",\r\n    \"numeroSerie\": \"APPLE987654\",\r\n    \"status\": \"EM_USO\",\r\n    \"projeto\": \"Projeto Novo Horizonte\",\r\n    \"equipamento\": \"NOTEBOOK\",\r\n    \"funcionario\": {\r\n        \"codigo\": 1\r\n    }\r\n}",
+              "raw": "{\r\n    \"marca\": \"APPLE\",\r\n    \"modelo\": \"MacBook Pro M3\",\r\n    \"numeroSerie\": \"APPLE987654\",\r\n    \"status\": \"EM_USO\",\r\n    \"projeto\": \"Projeto Novo Horizonte\",\r\n    \"equipamento\": \"NOTEBOOK\",\r\n    \"funcionario\": {\r\n        \"codigo\": 2\r\n    }\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -192,7 +192,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"marca\": \"APPLE\",\r\n    \"modelo\": \"MacBook Pro M3\",\r\n    \"numeroSerie\": \"APPLE987654\",\r\n    \"status\": \"EM_USO\",\r\n    \"projeto\": \"Projeto Expansão TI\",\r\n    \"equipamento\": \"NOTEBOOK\",\r\n    \"dataCompra\": \"2026-03-05T10:51:17\",\r\n    \"funcionario\": {\r\n        \"codigo\": 1\r\n    }\r\n}",
+              "raw": "{\r\n    \"marca\": \"APPLE\",\r\n    \"modelo\": \"MacBook Pro M3\",\r\n    \"numeroSerie\": \"APPLE987654\",\r\n    \"status\": \"EM_USO\",\r\n    \"projeto\": \"Projeto Expansão TI\",\r\n    \"equipamento\": \"NOTEBOOK\",\r\n    \"dataCompra\": \"2026-03-05T10:51:17\",\r\n    \"funcionario\": {\r\n        \"codigo\": 1,\r\n        \"nome\": \"Pedro\"\r\n    }\r\n}",
               "options": {
                 "raw": {
                   "language": "json"

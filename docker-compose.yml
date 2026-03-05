@@ -1,26 +1,31 @@
 services:
-  db-inventario:
-    image: postgres:latest
-    container_name: postgres-inventario
+  postgres:
+    image: postgres:17.5
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: admin
-      POSTGRES_DB: inventario_db
-    ports:
-      - "5432:5432"
+      POSTGRES_PASSWORD: postgres
     volumes:
-      - pgdata_inventario:/var/lib/postgresql/data
-    restart: always
-
-  pgadmin:
-    image: dpage/pgadmin4:latest
-    container_name: pgadmin-inventario
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admin@admin.com
-      PGADMIN_DEFAULT_PASSWORD: admin
+      - postgres-data:/var/lib/postgresql/data
     ports:
-      - "8081:80"
-    restart: always
-
+      - 5432:5432
+    networks:
+      - local-network
+  pgadmin:
+    image: dpage/pgadmin4:9.5
+    depends_on:
+      - postgres
+    environment:
+      PGADMIN_DEFAULT_EMAIL: dba@innvo.com.br
+      PGADMIN_DEFAULT_PASSWORD: innvo
+    ports:
+      - 8083:80
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    networks:
+      - local-network
 volumes:
-  pgdata_inventario:
+  postgres-data:
+  pgadmin-data:
+networks:
+  local-network:
+    driver: bridge
