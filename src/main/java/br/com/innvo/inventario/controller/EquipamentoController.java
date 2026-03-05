@@ -1,7 +1,9 @@
 package br.com.innvo.inventario.controller;
 
 import br.com.innvo.inventario.model.Equipamento;
+import br.com.innvo.inventario.model.Funcionario;
 import br.com.innvo.inventario.model.StatusEquipamento;
+import br.com.innvo.inventario.repository.FuncionarioRepository;
 import br.com.innvo.inventario.service.EquipamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/equipamento")
@@ -17,6 +20,9 @@ public class EquipamentoController {
 
     @Autowired
     private EquipamentoService service;
+
+    @Autowired
+    private FuncionarioRepository  funcionarioRepository;
 
 
     @GetMapping("/listar")
@@ -32,26 +38,29 @@ public class EquipamentoController {
 
     @PutMapping("/atualizar/{id}")
     public ResponseEntity<Equipamento> atualizar(@PathVariable Long id, @RequestBody Equipamento equipamentoAtualizado) {
-        Equipamento equipamentoSalvo = service.atualizar(id, equipamentoAtualizado);
-        return ResponseEntity.ok(equipamentoSalvo);
-       }
+        try {
+            Equipamento equipamentoSalvo = service.atualizar(id, equipamentoAtualizado);
+            return ResponseEntity.ok(equipamentoSalvo);
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 
     @PutMapping("/{id}/desvincular")
     public ResponseEntity<Equipamento> desvincular(@PathVariable Long id) {
+        Equipamento equipamentoNoBanco = service.buscarPorId(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Equipamento não encontrado"));
 
-        // Busca o notebook ou retorna erro 404 se não existir
+        // Limpa os campos
+        equipamentoNoBanco.setFuncionario(null);
+        equipamentoNoBanco.setProjeto(null);
+        equipamentoNoBanco.setStatus(StatusEquipamento.ESTOQUE);
 
-        Equipamento equipamento = service.buscarPorId(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Notebook não encontrado"));
+        // Salva o objeto alterado
+        Equipamento atualizado = service.salvar(equipamentoNoBanco);
 
-        // Remove o vínculo com o funcionário e limpas os campos de cliente e status
-
-        //equipamento.setFuncinario(null);
-        equipamento.setProjeto(null);
-        equipamento.setStatus(StatusEquipamento.ESTOQUE);
-
-        // Salva a alteração no banco
-        return ResponseEntity.ok(service.salvar(equipamento));
+        return ResponseEntity.ok(atualizado);
     }
 
 

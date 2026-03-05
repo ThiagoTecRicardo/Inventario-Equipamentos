@@ -5,8 +5,11 @@ import br.com.innvo.inventario.model.Funcionario;
 import br.com.innvo.inventario.repository.EquipamentoRepository;
 import br.com.innvo.inventario.repository.FuncionarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -22,7 +25,18 @@ public class EquipamentoService {
 
 
     public Equipamento salvar(Equipamento equipamento) {
-        Optional<Funcionario> funcionario = funcionarioRepository.findById(equipamento.getFuncionario().getCodigo());
+        // Verifica se foi enviado um funcionário com código no JSON
+        if (equipamento.getFuncionario() != null && equipamento.getFuncionario().getCodigo() != null) {
+
+            Long idFuncionario = equipamento.getFuncionario().getCodigo();
+
+            // Busca o funcionário real no banco de dados
+            Funcionario funcionarioExistente = funcionarioRepository.findById(idFuncionario)
+                    .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Funcionário não encontrado com código: " + idFuncionario));
+
+            // Substitui o objeto "solto" (detached) pelo objeto monitorado pelo banco (managed)
+            equipamento.setFuncionario(funcionarioExistente);
+        }
 
         return repository.save(equipamento);
     }
@@ -36,12 +50,18 @@ public class EquipamentoService {
                     equipamento.setStatus(equipamentoAtualizado.getStatus());
                     equipamento.setEquipamento(equipamentoAtualizado.getEquipamento());
                     equipamento.setProjeto(equipamentoAtualizado.getProjeto());
-                    equipamento.setDataCompra(equipamentoAtualizado.getDataCompra());
+
+                    // IMPORTANTE: Só atualiza a data se for enviada, senão mantém a original
+                    if (equipamentoAtualizado.getDataCompra() != null) {
+                        equipamento.setDataCompra(equipamentoAtualizado.getDataCompra());
+                    }
+
+                    // Trata o funcionário: se vier nulo no JSON, desvincula
                     equipamento.setFuncionario(equipamentoAtualizado.getFuncionario());
-                    Equipamento atualizado = repository.save(equipamento);
-                    return ResponseEntity.ok(atualizado);
+
+                    return repository.save(equipamento);
                 })
-                .orElse(ResponseEntity.notFound().build()).getBody();
+                .orElseThrow(() -> new RuntimeException("Equipamento não encontrado com id: " + id));
     }
 
     public List<Equipamento> listarTodos() {

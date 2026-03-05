@@ -9,6 +9,7 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 
 
+
 @Getter
 @Setter
 @Entity
@@ -25,17 +26,9 @@ public class Equipamento {
     private String projeto;
     private TipoEquipamento equipamento = TipoEquipamento.NOTEBOOK;
 
-    public Funcionario getFuncionario() {
-        return funcionario;
-    }
-
-    public void setFuncionario(Funcionario funcionario) {
-        this.funcionario = funcionario;
-    }
-
-    @ManyToOne
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "codigo_funcionario")
     private Funcionario funcionario;
 
-}
+   }
 
