@@ -15,12 +15,10 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:8080/api/funcionario/listar",
-              "protocol": "http",
+              "raw": "{{urlBase}}/api/funcionario/listar",
               "host": [
-                "localhost"
+                "{{urlBase}}"
               ],
-              "port": "8080",
               "path": [
                 "api",
                 "funcionario",
@@ -46,12 +44,10 @@
               }
             },
             "url": {
-              "raw": "http://localhost:8080/api/funcionario/registrar",
-              "protocol": "http",
+              "raw": "{{urlBase}}/api/funcionario/registrar",
               "host": [
-                "localhost"
+                "{{urlBase}}"
               ],
-              "port": "8080",
               "path": [
                 "api",
                 "funcionario",
@@ -77,12 +73,10 @@
               }
             },
             "url": {
-              "raw": "http://localhost:8080/api/funcionario/atualizar/1",
-              "protocol": "http",
+              "raw": "{{urlBase}}/api/funcionario/atualizar/1",
               "host": [
-                "localhost"
+                "{{urlBase}}"
               ],
-              "port": "8080",
               "path": [
                 "api",
                 "funcionario",
@@ -106,12 +100,10 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://localhost:8080/api/equipamento/listar",
-              "protocol": "http",
+              "raw": "{{urlBase}}/api/equipamento/listar",
               "host": [
-                "localhost"
+                "{{urlBase}}"
               ],
-              "port": "8080",
               "path": [
                 "api",
                 "equipamento",
@@ -137,12 +129,10 @@
               }
             },
             "url": {
-              "raw": "http://localhost:8080/api/equipamento/registrar",
-              "protocol": "http",
+              "raw": "{{urlBase}}/api/equipamento/registrar",
               "host": [
-                "localhost"
+                "{{urlBase}}"
               ],
-              "port": "8080",
               "path": [
                 "api",
                 "equipamento",
@@ -168,14 +158,11 @@
               }
             },
             "url": {
-              "raw": "http://localhost:8080/api/equipamento/1/desvincular",
-              "protocol": "http",
+              "raw": "{{urlBase}}api/equipamento/1/desvincular",
               "host": [
-                "localhost"
+                "{{urlBase}}api"
               ],
-              "port": "8080",
               "path": [
-                "api",
                 "equipamento",
                 "1",
                 "desvincular"
@@ -200,12 +187,10 @@
               }
             },
             "url": {
-              "raw": "http://localhost:8080/api/equipamento/atualizar/1",
-              "protocol": "http",
+              "raw": "{{urlBase}}/api/equipamento/atualizar/1",
               "host": [
-                "localhost"
+                "{{urlBase}}"
               ],
-              "port": "8080",
               "path": [
                 "api",
                 "equipamento",
