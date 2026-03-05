@@ -27,7 +27,7 @@ cd /backend
 ```
 ### Angular
 ```bash
-cd /frontend 
+cd /frontend-angular 
 ```
 ## 👨‍💻 Autor
 - **Projeto desenvolvido por Thiago Ricardo**
