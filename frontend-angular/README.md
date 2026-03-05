@@ -1,32 +1,20 @@
 # 📦 Inventário de Equipamentos
 
-Sistema de inventário para notebooks corporativos, desenvolvido em **Java + Spring Boot**, com suporte a **PostgreSQL** e execução via **Docker Compose**.  
+Sistema de inventário para notebooks corporativos, desenvolvido em **Angular**
 O objetivo é centralizar e gerenciar informações de equipamentos de TI de forma simples e escalável.
 
 ---
 ## 🚀 Instalação e Configuração
 
 ### Pré-requisitos
-- **Java 17+**
-- **Maven**
-- **Docker** (para banco de dados PostgreSQL)
-
+- **Angular**
+- **Angular Material**
 ---
-### Clonar o repositório
-```bash
-git clone https://github.com/ThiagoTecRicardo/Inventario-Equipamentos.git
-cd Inventario-Equipamentos
-```
-### Executar com Maven
+
+### Executar 
 
 ```bash
-mvn clean install
-mvn spring-boot:run
-```
-### Executar com Docker Compose
-
-```bash
-docker-compose up -d
+Add em breve
 ```
 ---
 ## 🛠️ Funcionalidades
@@ -47,53 +35,28 @@ docker-compose up -d
 
 ## 📂 Estrutura do Projeto
 
-<img width="1045" height="439" alt="image" src="https://github.com/user-attachments/assets/40157ade-22ad-4f7d-ad0a-3c79960f1ee8" />
+Em breve 
 
 
 ## 📊 Roadmap
-- [X] Implementar API REST completa
-- [X] Persistência em PostgreSQL
 - [ ] Criar testes automatizados
 - [ ] Adicionar interface gráfica
 - [ ] Documentação técnica detalhada
 
 ## 📌 Exemplos de Uso
 
-### Cadastro de Funcinario via API
+### Cadastro de Funcinario
+Colocar tela ...
 
-```bash
-POST /api/funcionario/registrar
-{
- "nome": "Thiago"
-}
-```
 ### Consulta de funcionario cadastrados
+Colocar tela ...
 
-```bash
-GET /api/funcionario/listar
-```
+### Cadastro de equipamento 
+Colocar tela ...
 
-### Cadastro de equipamento via API
-
-```bash
-POST /api/equipamento/registrar
-{
-    "marca": "APPLE",
-    "modelo": "MacBook Pro M3",
-    "numeroSerie": "APPLE987654",
-    "status": "EM_USO",
-    "projeto": "Projeto Novo Horizonte",
-    "equipamento": "NOTEBOOK",
-    "funcionario": {
-        "codigo": 2
-    }
-}
-```
 ### Consulta de equipamentos cadastrados
 
-```bash
-GET /api/equipamento/listar
-```
+Colocar tela ...
 
 ## 👨‍💻 Autor
 - **Projeto desenvolvido por Thiago Ricardo**
