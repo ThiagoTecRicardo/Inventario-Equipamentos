@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { Equipamento } from '../../../services/equipamento';  
+import { Equipamento } from '../../services/equipamento';  
 
 
 @Component({

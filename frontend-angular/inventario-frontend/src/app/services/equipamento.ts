@@ -11,7 +11,7 @@ export class Equipamento {
   private http = inject(HttpClient);
   private readonly API_URL = 'http://localhost:8080/api/equipamento/listar'; 
 
-  listaEquipamentos = signal<any[]>([]);
+  listaEquipamentos = signal<Equipamento[]>([]);
 
   carregarTodos() {
     this.http.get<Equipamento[]>(this.API_URL).subscribe({
