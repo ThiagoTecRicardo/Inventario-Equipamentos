@@ -1,21 +1,20 @@
-import { OnInit } from '@angular/core';
-import { EquipamentoService } from '../../services/equipamento';
+import { CommonModule } from '@angular/common';
+import { Component, inject, OnInit } from '@angular/core';
+import { Equipamento } from '../../../services/equipamento';  
 
 
-export class EquipamentoListComponent implements OnInit {
-  equipamentos: any[] = [];
+@Component({
+  selector: 'app-equipamento-list',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './equipamento-list.html',
+  styleUrl: './equipamento-list.css',
+})
+export class EquipamentoList implements OnInit {
+ 
+  public service = inject(Equipamento);
 
-  constructor(private service: EquipamentoService) {}
-
-  ngOnInit(): void {
-    this.carregar();
+   ngOnInit(): void {
+    this.service.carregarTodos();
+   }
   }
-
-  carregar() {
-    this.service.listar().subscribe(dados => this.equipamentos = dados);
-  }
-
-  onDesvincular(id: number) {
-    this.service.desvincular(id).subscribe(() => this.carregar());
-  }
-}

@@ -1,14 +1,27 @@
-<table>
-  <tr>
-    <th>Equipamento</th>
-    <th>Funcionário</th>
-    <th>Ações</th>
-  </tr>
-  <tr *ngFor="let eq of equipamentos">
-    <td>{{ eq.marca }} - {{ eq.modelo }}</td>
-    <td>{{ eq.funcionario?.nome || 'Disponível' }}</td>
-    <td>
-      <button (click)="onDesvincular(eq.id)" *ngIf="eq.funcionario">Desvincular</button>
-    </td>
-  </tr>
-</table>
+<div class="container">
+      <h2>Inventário de Equipamentos</h2>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Equipamento</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Novo Control Flow do Angular (v17+) -->
+          @for (item of service.listaEquipamentos(); track item.id) {
+           <tr>
+      <td>{{ item.equipamento }}</td>
+      <td>{{ item.marca }}</td>
+      <td>{{ item.modelo }}</td>
+    </tr>
+          } @empty {
+            <tr>
+              <td colspan="3">Nenhum equipamento encontrado.</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
